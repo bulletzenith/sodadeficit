@@ -1,0 +1,14 @@
+# ignore all *.csproj
+*.csproj
+
+# ignore logs and temp dir
+Logs/
+Temp/
+UserSettings/
+obj/
+ProjectSettings/
+Packages/
+Library/
+.vscode/
+
+*.sln
