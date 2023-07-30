@@ -7,7 +7,10 @@ public class PlayerLook : MonoBehaviour
     public float sensX;
     public float sensY;
 
+    public float fov = 90f;
+
     public Transform orientation;
+    public Camera cam;
 
     float xRotation;
     float yRotation;
@@ -32,5 +35,15 @@ public class PlayerLook : MonoBehaviour
         // rotate camera and player 
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
         orientation.rotation = Quaternion.Euler(0, yRotation, 0);
+
+        // field of view change/zoom from keypress
+        if (Input.GetKey("c"))
+        {
+            cam.fieldOfView = fov / 3;
+        }
+        else
+        {
+            cam.fieldOfView = fov;
+        }
     }
 }
