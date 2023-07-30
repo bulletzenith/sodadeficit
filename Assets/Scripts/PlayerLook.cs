@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class PlayerLook : MonoBehaviour
 {
-    public float sensX;
-    public float sensY;
+    public float sensitivityX = 400;
+    public float sensitivityY = 400;
+
+    float sensX;
+    float sensY;
+
+    float velocity = 0f;
+    float smoothTime = 0.1f;
 
     public float fov = 90f;
 
@@ -20,6 +26,9 @@ public class PlayerLook : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        sensX = sensitivityX;
+        sensY = sensitivityY;
     }
 
     // Update is called once per frame
@@ -40,10 +49,15 @@ public class PlayerLook : MonoBehaviour
         if (Input.GetKey("c"))
         {
             cam.fieldOfView = fov / 3;
+            //cam.fieldOfView = Mathf.SmoothDamp(cam.fieldOfView, fov, ref velocity, 0.25f);
+            sensX = sensitivityX / 2;
+            sensY = sensitivityY / 2;
         }
         else
         {
             cam.fieldOfView = fov;
+            sensX = sensitivityX;
+            sensY = sensitivityY;
         }
     }
 }
