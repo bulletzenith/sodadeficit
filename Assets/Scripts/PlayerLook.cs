@@ -10,8 +10,6 @@ public class PlayerLook : MonoBehaviour
     float sensX;
     float sensY;
 
-    float velocity = 0f;
-    float smoothTime = 0.1f;
 
     public float fov = 90f;
 
