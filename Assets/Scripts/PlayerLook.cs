@@ -44,7 +44,7 @@ public class PlayerLook : MonoBehaviour
         orientation.rotation = Quaternion.Euler(0, yRotation, 0);
 
         // field of view change/zoom from keypress
-        if (Input.GetKey("c"))
+        if (Input.GetButtonDown("Fire2"))
         {
             cam.fieldOfView = fov / 3;
             //cam.fieldOfView = Mathf.SmoothDamp(cam.fieldOfView, fov, ref velocity, 0.25f);
